@@ -7,13 +7,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Post;
 import model.User;
 
 import java.io.IOException;
 
-@WebServlet("/addPost")
-public class AddPostServlet extends HttpServlet {
+@WebServlet("/profile")
+public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -22,18 +21,22 @@ public class AddPostServlet extends HttpServlet {
             resp.sendRedirect("/auth");
             return;
         }
-        req.getRequestDispatcher("addPost.jsp").forward(req, resp);
+        req.getRequestDispatcher("profile.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String titel = req.getParameter("title");
-        Long category_id = Long.valueOf(req.getParameter("category"));
-        String content = req.getParameter("content");
-        Post post = new Post();
-        post.setTitle(titel);
-        post.setContent(content);
-        DbManager.addPost(post, category_id);
-        resp.sendRedirect("/posts");
+        Long id = Long.valueOf(req.getParameter("id"));
+        String fullName = req.getParameter("fullName");
+        String password = req.getParameter("password");
+        User user = new User();
+        user.setId(id);
+        user.setFull_name(fullName);
+        user.setPassword(password);
+        User updatedUser = DbManager.updateUser(user);
+        HttpSession session = req.getSession();
+        session.setAttribute("currentUser", updatedUser);
+        resp.sendRedirect("/profile");
+
     }
 }

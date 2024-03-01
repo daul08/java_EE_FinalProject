@@ -1,20 +1,19 @@
 package model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Post {
     public long id;
     public LocalDateTime post_date;
     public PostCategory postCategory;
-    public String titel;
+    public String title;
     public String content;
 
-    public Post(long id, LocalDateTime post_date, PostCategory postCategory, String titel, String content) {
+    public Post(long id, LocalDateTime post_date, PostCategory postCategory, String title, String content) {
         this.id = id;
         this.post_date = post_date;
         this.postCategory = postCategory;
-        this.titel = titel;
+        this.title = title;
         this.content = content;
     }
 
@@ -44,12 +43,12 @@ public class Post {
         this.postCategory = postCategory;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {

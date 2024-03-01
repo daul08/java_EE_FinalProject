@@ -9,7 +9,7 @@
 <html>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand ms-2" href="#">BITLAB NEWS</a>
+        <a class="navbar-brand ms-2" href="/posts">BITLAB NEWS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,15 +29,9 @@
                     <a class="nav-link active" aria-current="page" href="/posts">Новости</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Профиль</a>
+                    <a class="nav-link active" aria-current="page" href="/profile">Профиль</a>
                 </li>
-                <%
-                    if (user != null) { %>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/logout">Выйти</a>
-                </li>
-                    <%}
-                    else {%>
+                <%if (user == null) {%>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/auth">Войти</a>
                 </li>

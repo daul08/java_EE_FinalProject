@@ -33,8 +33,11 @@
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-success">Login</button>
+                <button type="submit" class="btn btn-success">Войти</button>
             </form>
+            <div>
+                <a href="/registration" class="btn btn-primary">Регистрация</a>
+            </div>
         </div>
     </div>
 </div>

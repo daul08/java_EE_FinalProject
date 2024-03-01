@@ -22,7 +22,7 @@
             for(Post post: posts) {%>
         <div class="card mt-3 me-3" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"><%=post.getTitel()%></h5>
+                <h5 class="card-title"><%=post.getTitle()%></h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary"><%=post.getPostCategory().name%></h6>
                 <p class="card-text"><%=post.getPost_date()%></p>
                 <a href="/postDetail?id=<%=post.getId()%>" class="card-link">Подробнее</a>
